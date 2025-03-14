@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1e3a8a; /* Dragon blue */
-            --accent-color: #10b981; /* Dragon green */
-            --light-color: #f0f9ff;
-            --dark-color: #1f2937;
+            --primary-color: #5a189a; /* Dragon purple */
+            --accent-color: #c9b037; /* Libra gold (muted) */
+            --light-color: #f8f4ff; /* Light purple tint */
+            --dark-color: #2d1842; /* Deep purple for dark elements */
             --transition: all 0.3s ease;
         }
         
@@ -27,7 +27,7 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--dark-color);
             line-height: 1.6;
-            background-color: #f8fafc;
+            background-color: #f8f4ff;
         }
         
         .container {
@@ -46,7 +46,7 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.6)), url('images/hero-bg.jpg');
+            background: linear-gradient(rgba(26, 103, 67, 0.85), rgba(26, 103, 67, 0.7)), url('images/hero-bg.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -63,7 +63,7 @@
             left: 0;
             width: 100%;
             height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8fafc" fill-opacity="1" d="M0,96L48,117.3C96,139,192,181,288,181.3C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f0f7f5" fill-opacity="1" d="M0,96L48,117.3C96,139,192,181,288,181.3C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
             background-size: cover;
         }
         
@@ -226,7 +226,7 @@
         
         /* Dragon Section */
         .dragon-section {
-            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.8)), url('images/dragon-bg.jpg');
+            background: linear-gradient(rgba(26, 103, 67, 0.9), rgba(26, 103, 67, 0.8)), url('images/dragon-bg.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -296,14 +296,14 @@
         }
         
         .contact-btn:hover {
-            background-color: #0ea5e9;
+            background-color: #b39b28; /* Darker gold on hover */
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark-color);
+            background-color: var(--dark-color); /* Agora será o verde escuro */
             color: white;
             text-align: center;
             padding: 2rem 0;
@@ -343,7 +343,7 @@
             <h2 class="section-title">Sobre o Shiryu</h2>
             <div class="about-grid">
                 <div class="about-image">
-                    <img src="images/shiryu-baby.jpg" alt="Bebê Shiryu">
+                    <img src="images/dormir.jpeg" alt="Bebê Shiryu">
                 </div>
                 <div class="about-info">
                     <h2>Conheça nosso pequeno dragão</h2>
@@ -354,7 +354,7 @@
                     </div>
                     <div class="info-item">
                         <i class="fas fa-weight"></i>
-                        <span>Nasceu com 3.5 kg</span>
+                        <span>Pesando apenas 2.5 kg</span>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-ruler-vertical"></i>
@@ -362,9 +362,9 @@
                     </div>
                     <div class="info-item">
                         <i class="fas fa-clock"></i>
-                        <span>Nasceu às 14:30h</span>
+                        <span>Nasceu às 6:30h</span>
                     </div>
-                    <p>Nosso pequeno foi nomeado inspirado em Shiryu de Dragão, o lendário Cavaleiro de Bronze de Saint Seiya, conhecido por sua imensa lealdade, perseverança e sabedoria.</p>
+                    <p>Nasceu pequeno mas com a coragem de um cavaleiro. Desde o início, ensinando aos pais sobre dedicação, luta, superação e sabedoria.</p>
                 </div>
             </div>
         </div>
@@ -376,29 +376,20 @@
             <h2 class="section-title">Galeria</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/shiryu-1.jpg" alt="Shiryu">
+                    <img src="images/shiryu-1.jpeg" alt="Shiryu">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/shiryu-2.jpg" alt="Shiryu">
+                    <img src="images/shiryu-2.jpeg" alt="Shiryu">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/shiryu-3.jpg" alt="Shiryu">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/shiryu-4.jpg" alt="Shiryu">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/shiryu-5.jpg" alt="Shiryu">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/shiryu-6.jpg" alt="Shiryu">
+                    <img src="images/shiryu-3.jpeg" alt="Shiryu">
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Father and Son Section -->
-    <section class="father-son-section">
+    <!-- <section class="father-son-section">
         <div class="container">
             <h2 class="section-title">Pai e Filho</h2>
             <div class="father-son-container">
@@ -416,7 +407,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     
     <!-- Dragon Section -->
     <section class="dragon-section">
@@ -432,6 +423,7 @@
                     <div class="skill-item">Lealdade</div>
                     <div class="skill-item">Perseverança</div>
                     <div class="skill-item">Justiça</div>
+                    <div class="skill-item">Amizade</div>
                 </div>
             </div>
         </div>
@@ -454,12 +446,5 @@
             <p>&copy; 2025 - Shiryu.com.br</p>
         </div>
     </footer>
-    
-    <script>
-        // This could be expanded with image gallery lightbox, animations, etc.
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Website loaded successfully');
-        });
-    </script>
 </body>
 </html>
