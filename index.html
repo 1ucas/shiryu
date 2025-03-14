@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiryu - Pequeno Dragão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* Dragon blue */
+            --accent-color: #10b981; /* Dragon green */
+            --light-color: #f0f9ff;
+            --dark-color: #1f2937;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.6)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8fafc" fill-opacity="1" d="M0,96L48,117.3C96,139,192,181,288,181.3C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .dragon-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            height: 400px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-info h2 {
+            color: var(--primary-color);
+        }
+        
+        .about-info p {
+            margin-bottom: 1rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .info-item i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--light-color);
+            position: relative;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            height: 250px;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Father and Son Section */
+        .father-son-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .moment-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .moment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .moment-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Dragon Section */
+        .dragon-section {
+            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.8)), url('images/dragon-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .dragon-section .section-title {
+            color: white;
+        }
+        
+        .dragon-info {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .dragon-symbol {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .dragon-skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            margin: 0.5rem;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+        }
+        
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .contact-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .contact-btn:hover {
+            background-color: #0ea5e9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="dragon-icon">
+                <i class="fas fa-dragon"></i>
+            </div>
+            <h1>Shiryu</h1>
+            <p>Nosso pequeno dragão, nascido em 25 de Maio de 2023</p>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Sobre o Shiryu</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/shiryu-baby.jpg" alt="Bebê Shiryu">
+                </div>
+                <div class="about-info">
+                    <h2>Conheça nosso pequeno dragão</h2>
+                    <p>Shiryu chegou ao mundo em 25 de maio de 2023, trazendo luz e alegria para nossa família.</p>
+                    <div class="info-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>25 de Maio de 2023</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-weight"></i>
+                        <span>Nasceu com 3.5 kg</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-ruler-vertical"></i>
+                        <span>49 cm de comprimento</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Nasceu às 14:30h</span>
+                    </div>
+                    <p>Nosso pequeno foi nomeado inspirado em Shiryu de Dragão, o lendário Cavaleiro de Bronze de Saint Seiya, conhecido por sua imensa lealdade, perseverança e sabedoria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Galeria</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/shiryu-1.jpg" alt="Shiryu">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/shiryu-2.jpg" alt="Shiryu">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/shiryu-3.jpg" alt="Shiryu">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/shiryu-4.jpg" alt="Shiryu">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/shiryu-5.jpg" alt="Shiryu">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/shiryu-6.jpg" alt="Shiryu">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Father and Son Section -->
+    <section class="father-son-section">
+        <div class="container">
+            <h2 class="section-title">Pai e Filho</h2>
+            <div class="father-son-container">
+                <div class="moment-card">
+                    <h3>Primeiros momentos</h3>
+                    <p>Aqueles primeiros momentos em que nos encontramos foram mágicos. O olhar curioso, as mãozinhas pequenas e a sensação de ter o mundo inteiro entre meus braços.</p>
+                </div>
+                <div class="moment-card">
+                    <h3>Descobertas diárias</h3>
+                    <p>Cada dia com você é uma nova descoberta. Ver seus sorrisos, acompanhar cada avanço e celebrar cada pequena vitória é a maior alegria que um pai pode ter.</p>
+                </div>
+                <div class="moment-card">
+                    <h3>Companheiros de aventura</h3>
+                    <p>Juntos exploraremos o mundo, enfrentaremos desafios e criaremos memórias que durarão para sempre. Esta é apenas a primeira página da nossa grande história.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Dragon Section -->
+    <section class="dragon-section">
+        <div class="container">
+            <h2 class="section-title">A Inspiração do Dragão</h2>
+            <div class="dragon-info">
+                <div class="dragon-symbol">🐉</div>
+                <p>O nome Shiryu foi inspirado no lendário Cavaleiro de Dragão de "Saint Seiya", que treinou nas montanhas de Rozan sob a tutela do Mestre Ancião.</p>
+                <p>Assim como o cavaleiro, desejamos que nosso pequeno cresça com valores como:</p>
+                <div class="dragon-skills">
+                    <div class="skill-item">Coragem</div>
+                    <div class="skill-item">Sabedoria</div>
+                    <div class="skill-item">Lealdade</div>
+                    <div class="skill-item">Perseverança</div>
+                    <div class="skill-item">Justiça</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Entre em contato</h2>
+            <a href="mailto:contato@shiryu.com.br" class="contact-btn">
+                <i class="fas fa-envelope"></i>
+                Entre em contato
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - Shiryu.com.br</p>
+        </div>
+    </footer>
+    
+    <script>
+        // This could be expanded with image gallery lightbox, animations, etc.
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Website loaded successfully');
+        });
+    </script>
+</body>
+</html>
