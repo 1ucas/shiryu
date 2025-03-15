@@ -313,6 +313,15 @@
             padding: 2rem 0;
         }
         
+        .disclaimer {
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -326,6 +335,35 @@
             .section-title {
                 font-size: 2rem;
             }
+        }
+
+        /* Audio Player Styles */
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+        }
+        
+        .audio-player button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .audio-player button:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
@@ -350,7 +388,7 @@
                     <img src="images/dormir.jpeg" alt="Bebê Shiryu">
                 </div>
                 <div class="about-info">
-                    <h2>Conheça nosso pequeno dragão</h2>
+                    <h2>Conheça nosso pequeno cavaleiro</h2>
                     <p>Shiryu chegou ao mundo em 25 de maio de 2023, trazendo luz e alegria para nossa família.</p>
                     <div class="info-item">
                         <i class="fas fa-birthday-cake"></i>
@@ -436,7 +474,7 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="container">
-            <h2 class="section-title">Entre em contato</h2>
+            <h2 class="section-title">Contato de Shiryu</h2>
             <a href="mailto:contato@shiryu.com.br" class="contact-btn">
                 <i class="fas fa-envelope"></i>
                 Entre em contato
@@ -448,7 +486,40 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 - Shiryu.com.br</p>
+            <p class="disclaimer">Saint Seiya e todos os personagens relacionados são propriedade da Toei Animation e Masami Kurumada. Este é um website pessoal, particular e sem fins comerciais.</p>
         </div>
     </footer>
+
+    <!-- Audio Player -->
+    <div class="audio-player">
+        <button id="toggleAudio"><i class="fas fa-play"></i></button>
+        <span>Tema do Shiryu</span>
+        <audio id="themeAudio" preload="auto">
+            <source src="audio/shiryu.mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+    </div>
+
+    <!-- Audio Control Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('themeAudio');
+            const toggleBtn = document.getElementById('toggleAudio');
+            const toggleIcon = toggleBtn.querySelector('i');
+            
+            // Audio is initially muted (browser policies)
+            audio.volume = 0.3;
+            
+            toggleBtn.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    toggleIcon.className = 'fas fa-pause';
+                } else {
+                    audio.pause();
+                    toggleIcon.className = 'fas fa-play';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
